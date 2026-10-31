@@ -1,0 +1,76 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#0d0f12">
+  <meta name="description" content="Hassan's week at a glance. Work, training, and room for life.">
+  <title>HASSAN // THE WEEK AHEAD</title>
+  <link rel="stylesheet" href="./styles.css">
+  <script type="module" src="./app.mjs"></script>
+</head>
+<body>
+  <main>
+    <header class="masthead">
+      <a class="wordmark" href="./index.html">// HASSAN<span class="signal">.</span></a>
+      <span class="edition">WORK / TRAIN / LIVE</span>
+    </header>
+    <section class="intro" aria-labelledby="page-title">
+      <div>
+        <p class="eyebrow"><span class="status-dot"></span> YOUR CORNER OF THE WEEK</p>
+        <h1 id="page-title">Show up.<br><span>Know what's next.</span></h1>
+        <p class="intro-copy">A clear head. A solid routine. Room for life outside the gym.</p>
+      </div>
+      <div class="identity" aria-label="Personal interests">
+        <span class="identity-number" aria-hidden="true">01 /</span>
+        <p>BOXING. JIU-JITSU. IRON.</p>
+        <span>Heavy sets. Dark playlists. Your own pace.</span>
+      </div>
+    </section>
+    <section class="planner" aria-labelledby="week-title">
+      <div class="section-heading">
+        <div>
+          <p class="eyebrow">01 / THE PLAN</p>
+          <h2 id="week-title"></h2>
+          <p id="week-focus" class="muted"></p>
+        </div>
+        <nav class="week-nav" aria-label="Choose a week">
+          <button id="previous-week" type="button" aria-label="Previous week">&larr;</button>
+          <span id="week-position"></span>
+          <button id="next-week" type="button" aria-label="Next week">&rarr;</button>
+        </nav>
+      </div>
+      <div class="legend" aria-label="Commitment types">
+        <span><i class="legend-fixed"></i>Fixed</span>
+        <span><i class="legend-flexible"></i>Flexible</span>
+        <span><i class="legend-tentative"></i>Tentative</span>
+        <span class="legend-note">Times where they matter. No hourly grid.</span>
+      </div>
+      <div id="calendar" class="calendar"></div>
+      <p class="calendar-note">Unscheduled isn't automatically free. Leave room for travel, food, and recovery.</p>
+    </section>
+    <section class="support" aria-label="Weekly context">
+      <div class="fit-panel">
+        <p class="eyebrow">02 / FIT IT IN</p>
+        <h2>A little life admin.</h2>
+        <p class="muted">Suggestions, not extra obligations. Give one a day when you're ready.</p>
+        <ul id="weekly-list" class="weekly-list"></ul>
+      </div>
+      <aside class="routine-panel">
+        <p class="eyebrow">THE BASELINE</p>
+        <h2>Your usual rhythm.</h2>
+        <dl>
+          <div><dt>Work</dt><dd>Mon-Fri / 9 am-5 pm</dd></div>
+          <div><dt>Head out</dt><dd>~8:30-8:40 am</dd></div>
+          <div><dt>Home</dt><dd>Usually ~6 pm</dd></div>
+          <div><dt>Mon + Wed</dt><dd>Straight to training after work</dd></div>
+        </dl>
+        <p class="routine-note">Late-November weekend work: dates still to confirm. Not placed on the calendar yet.</p>
+      </aside>
+    </section>
+    <footer><span>// CONSISTENCY OVER NOISE</span><span>A plan, not a pressure meter.</span></footer>
+    <noscript><p class="error">Please enable JavaScript to view the weekly schedule.</p></noscript>
+    <p id="load-error" class="error" role="alert" hidden></p>
+  </main>
+</body>
+</html>
