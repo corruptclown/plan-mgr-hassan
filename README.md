@@ -30,7 +30,7 @@ Late-November weekend work has no confirmed dates yet; it is a baseline reminder
 
 ## Publish on GitHub Pages
 
-This repository deploys the static site from `hassan-plan-mgr-main/` automatically when you push to `main`. No build step or Node.js runtime is needed to serve the site.
+This repository deploys the static site from its root automatically when you push to `main`. No build step or Node.js runtime is needed to serve the site.
 
 To enable deployment, open **Settings > Pages** and set **Build and deployment > Source** to **GitHub Actions**. The first deployment runs on the next push to `main`; you can also start it from the **Actions** tab with **Run workflow**.
 
