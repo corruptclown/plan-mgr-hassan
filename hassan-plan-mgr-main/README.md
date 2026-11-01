@@ -30,14 +30,12 @@ Late-November weekend work has no confirmed dates yet; it is a baseline reminder
 
 ## Publish on GitHub Pages
 
-Create a repository and upload these files to its root. In **Settings > Pages**, choose **Deploy from a branch**, then your branch and **/(root)**. No build step is needed. Relative asset links also work under a repository URL.
+This repository deploys the static site from `hassan-plan-mgr-main/` automatically when you push to `main`. No build step or Node.js runtime is needed to serve the site.
 
-Repository: https://github.com/minhaz-nuzhat/hassan-plan-mgr
+To enable deployment, open **Settings > Pages** and set **Build and deployment > Source** to **GitHub Actions**. The first deployment runs on the next push to `main`; you can also start it from the **Actions** tab with **Run workflow**.
 
-Public site URL once Pages is enabled: https://minhaz-nuzhat.github.io/hassan-plan-mgr/
+The site URL is shown in the successful **Deploy to GitHub Pages** workflow run. For this repository, it will normally be `https://corruptclown.github.io/plan-mgr-hassan/`.
 
-The `.nojekyll` file tells GitHub Pages to serve the static files without Jekyll processing.
-
-The site needs only [index.html](./index.html), [styles.css](./styles.css), [app.mjs](./app.mjs), and [schedule.mjs](./schedule.mjs). The local server, tests, and package file are development helpers.
+The deployment includes [index.html](./index.html), [styles.css](./styles.css), [app.mjs](./app.mjs), and [schedule.mjs](./schedule.mjs). The local server, tests, and package file are development helpers. Review the saved schedule before publishing; the deployed content is public.
 
 The visual identity uses original copy and system fonts: training-journal typography against neutral charcoal. Each scheduled task has a near-black fill with a distinct bright outline, icon, and title: blue briefcase for work, gold glove for boxing, purple uniform for jiu-jitsu, mint weights for lifting, and pink people for personal plans. Times and notes stay off-white; colored fills are avoided for readability. Times, notes, and commitment labels use at least 12px text. Tentative tasks have dashed outlines and a text label; labels remain readable without relying on color or icons. On mobile, compact single-column day cards align times alongside activities, remove fixed card heights, and use 44px week-navigation buttons. No artist lyrics, portraits, third-party embeds, or external font requests.
