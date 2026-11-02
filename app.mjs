@@ -2,13 +2,84 @@ import { weeks, localDate, eventsForDay, initialWeekIndex, validateSchedule } fr
 
 const dayName = new Intl.DateTimeFormat("en", { weekday: "short" });
 const dateLabel = new Intl.DateTimeFormat("en", { month: "short", day: "numeric" });
+const dayNumber = new Intl.DateTimeFormat("en", { day: "numeric" });
+const monthName = new Intl.DateTimeFormat("en", { month: "long" });
 let selectedWeek = initialWeekIndex();
+let selectedView = "schedule";
+
+const monthlyExpenses = [
+  { name: "Gym", amount: 50 },
+  { name: "MMA Gym", amount: 180 },
+  { name: "Car insurance", amount: 165 },
+  { name: "Gas", amount: 350 },
+  { name: "Spending money", amount: 500 },
+  { name: "TFSA / FHSA", amount: 1500 },
+  { name: "Travel fund", amount: 500 },
+  { name: "Rent", amount: 850 }
+];
+const monthlyExpenseTotal = monthlyExpenses.reduce((total, expense) => total + expense.amount, 0);
+
+const monthGroups = new Map();
+weeks.forEach((week, index) => {
+  const date = localDate(week.days[0].date);
+  const key = `${date.getFullYear()}-${date.getMonth()}`;
+  if (!monthGroups.has(key)) {
+    monthGroups.set(key, {
+      label: monthName.format(date),
+      year: date.getFullYear(),
+      weekIndices: []
+    });
+  }
+  monthGroups.get(key).weekIndices.push(index);
+});
 
 function element(tag, className, text) {
   const node = document.createElement(tag);
   if (className) node.className = className;
   if (text !== undefined) node.textContent = text;
   return node;
+}
+
+function weekTabLabel(week) {
+  const start = localDate(week.days[0].date);
+  const end = localDate(week.days.at(-1).date);
+  const endLabel = start.getMonth() === end.getMonth() && start.getFullYear() === end.getFullYear()
+    ? dayNumber.format(end)
+    : dateLabel.format(end);
+  return `${dateLabel.format(start)}–${endLabel}`;
+}
+
+function renderNavigation() {
+  const monthNav = document.querySelector("#month-nav");
+  monthNav.replaceChildren(...[...monthGroups].map(([key, group]) => {
+    const button = element("button", "month-tab", group.label);
+    button.type = "button";
+    button.setAttribute("aria-label", `${group.label} ${group.year}`);
+    button.setAttribute("aria-pressed", String(group.weekIndices.includes(selectedWeek)));
+    button.addEventListener("click", () => {
+      if (!group.weekIndices.includes(selectedWeek)) selectedWeek = group.weekIndices[0];
+      render();
+    });
+    return button;
+  }));
+
+  const weekNav = document.querySelector("#week-nav");
+  const currentMonth = localDate(weeks[selectedWeek].days[0].date);
+  const key = `${currentMonth.getFullYear()}-${currentMonth.getMonth()}`;
+  const indices = monthGroups.get(key).weekIndices;
+  weekNav.hidden = selectedView !== "schedule";
+  weekNav.replaceChildren(...indices.map(index => {
+    const week = weeks[index];
+    const button = element("button", "week-tab", weekTabLabel(week));
+    button.type = "button";
+    button.setAttribute("aria-label", week.range);
+    button.setAttribute("aria-pressed", String(index === selectedWeek));
+    button.addEventListener("click", () => {
+      selectedWeek = index;
+      render();
+    });
+    return button;
+  }));
 }
 
 function taskIcon(theme) {
@@ -64,13 +135,20 @@ function dayCard(day) {
 
 function render() {
   const week = weeks[selectedWeek];
-  document.querySelector("#week-title").textContent = `${week.title} ${week.range}`;
-  document.querySelector("#week-focus").textContent = week.focus;
-  document.querySelector("#week-position").textContent = `${selectedWeek + 1} / ${weeks.length}`;
-  document.querySelector("#previous-week").disabled = selectedWeek === 0;
-  document.querySelector("#next-week").disabled = selectedWeek === weeks.length - 1;
+  const isSchedule = selectedView === "schedule";
+  document.querySelector("#view-title").textContent = isSchedule
+    ? `${week.title} ${week.range}`
+    : "Monthly expenses";
+  const description = document.querySelector("#view-description");
+  description.textContent = isSchedule ? week.focus : "";
+  description.hidden = !isSchedule;
+  document.querySelector("#schedule-view").setAttribute("aria-pressed", String(isSchedule));
+  document.querySelector("#expenses-view").setAttribute("aria-pressed", String(!isSchedule));
+  document.querySelector("#schedule-content").hidden = !isSchedule;
+  document.querySelector("#expenses-panel").hidden = isSchedule;
+  document.querySelector(".support").hidden = !isSchedule;
+  renderNavigation();
   const calendar = document.querySelector("#calendar");
-  calendar.classList.toggle("opening-weekend", week.days.length === 2);
   calendar.replaceChildren(...week.days.map(dayCard));
   document.querySelector("#weekly-list").replaceChildren(...week.suggestions.map(suggestion => {
     const item = element("li", "suggestion");
@@ -79,16 +157,32 @@ function render() {
     item.append(element("span", "category-tag", suggestion.category), copy);
     return item;
   }));
+  const expenseItems = monthlyExpenses.map(expense => {
+    const item = element("li", "monthly-expense");
+    item.append(
+      element("span", "expense-name", expense.name),
+      element("span", "expense-amount", `$${expense.amount.toLocaleString("en-CA")}`)
+    );
+    return item;
+  });
+  const total = element("li", "monthly-expense expense-total");
+  total.append(
+    element("span", "expense-name", "Total"),
+    element("span", "expense-amount", `$${monthlyExpenseTotal.toLocaleString("en-CA")}`)
+  );
+  document.querySelector("#expense-list").replaceChildren(...expenseItems, total);
 }
 
 try {
   validateSchedule();
   render();
-  document.querySelector("#previous-week").addEventListener("click", () => {
-    if (selectedWeek > 0) { selectedWeek -= 1; render(); }
+  document.querySelector("#schedule-view").addEventListener("click", () => {
+    selectedView = "schedule";
+    render();
   });
-  document.querySelector("#next-week").addEventListener("click", () => {
-    if (selectedWeek < weeks.length - 1) { selectedWeek += 1; render(); }
+  document.querySelector("#expenses-view").addEventListener("click", () => {
+    selectedView = "expenses";
+    render();
   });
 } catch (error) {
   console.error("Unable to load Hassan's schedule.", error);
