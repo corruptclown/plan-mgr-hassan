@@ -97,6 +97,15 @@ test("schedule covers November through the final pre-travel day", () => {
     assert.equal(physio.time, "7 am");
     assert.equal(eventsForDay(day)[0], physio);
   }
+  const nov11 = weeks.flatMap(week => week.days).find(day => day.date === "2026-11-11");
+  assert.equal(eventsForDay(nov11).find(event => event.title === "Work").time, "8 am-4 pm");
+  const nov23 = weeks.flatMap(week => week.days).find(day => day.date === "2026-11-23");
+  assert.equal(eventsForDay(nov23).some(event => event.title === "Work"), false);
+  assert.ok(eventsForDay(nov23).some(event => event.title === "Jiu-jitsu"));
+  const nov29 = weeks.flatMap(week => week.days).find(day => day.date === "2026-11-29");
+  assert.equal(eventsForDay(nov29).find(event => event.title === "Work").time, "10 am-6 pm");
+  assert.ok(eventsForDay(nov29).some(event => event.title === "Lift with Hamoudi"));
+  assert.ok(eventsForDay(nov29).some(event => event.title === "Arabic Reading"));
   for (const day of weeks.flatMap(week => week.days)) {
     const weekday = localDate(day.date).getDay();
     const titles = eventsForDay(day).map(event => event.title);

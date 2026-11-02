@@ -81,11 +81,12 @@ export const weeks = [
       { date: "2026-11-10", focus: "Work + lift with Hamoudi + Arabic Reading", room: "Lift time flexible. Some evening room.", events: [] },
       {
         date: "2026-11-11",
-        focus: "Physio + work + double session",
-        room: "Physio at 7 am. Evening mostly committed.",
+        focus: "Physio + work 8 am-4 pm + double session",
+        room: "Physio at 7 am. Work 8 am-4 pm. Evening mostly committed.",
         override: [
           { title: "Physio with Chris", time: "7 am", kind: "fixed", category: "life", theme: "life" },
-          ...routine[3]
+          { ...routine[3][0], time: "8 am-4 pm" },
+          ...routine[3].slice(1)
         ],
         events: []
       },
@@ -125,13 +126,28 @@ export const weeks = [
     range: "Nov 23 - 29, 2026",
     focus: "",
     days: [
-      { date: "2026-11-23", focus: "Work + double session", room: "Evening mostly committed.", events: [] },
+      {
+        date: "2026-11-23",
+        focus: "Off work + double session",
+        room: "No work scheduled. Evening mostly committed.",
+        override: routine[1].filter(event => event.title !== "Work"),
+        events: []
+      },
       { date: "2026-11-24", focus: "Work + lift with Hamoudi + Arabic Reading", room: "Lift time flexible. Some evening room.", events: [] },
       { date: "2026-11-25", focus: "Work + double session", room: "Evening mostly committed.", events: [] },
       { date: "2026-11-26", focus: "Work + lift with Hamoudi", room: "Lift time flexible. Some evening room.", events: [] },
       { date: "2026-11-27", focus: "Work + boxing", room: "Room before boxing, allowing for dinner + travel.", events: [] },
       { date: "2026-11-28", focus: "Jiu-jitsu", room: "No other plans added yet.", events: [] },
-      { date: "2026-11-29", focus: "Lift with Hamoudi + Arabic Reading", room: "Lift time TBD.", events: [] }
+      {
+        date: "2026-11-29",
+        focus: "Work 10 am-6 pm + Lift with Hamoudi + Arabic Reading",
+        room: "Work 10 am-6 pm. Lift time TBD.",
+        override: [
+          { ...routine[5][0], time: "10 am-6 pm" },
+          ...routine[0]
+        ],
+        events: []
+      }
     ],
     suggestions: []
   },
