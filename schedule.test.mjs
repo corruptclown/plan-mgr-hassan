@@ -20,6 +20,9 @@ test("recurring work and exact training commitments are preserved", () => {
     assert.equal(routine[weekday][1].kind, "flexible");
     assert.equal(routine[weekday][1].time, "After work / ~1 hour");
   }
+  assert.deepEqual(routine[0][0], {
+    title: "Lift with Hamoudi", time: "Time TBD", kind: "flexible", category: "training"
+  });
   assert.deepEqual(routine[1].at(-1), {
     title: "Read", time: "15 min", kind: "flexible", category: "life", theme: "life", note: "Time TBD"
   });
@@ -109,6 +112,7 @@ test("schedule covers November through the final pre-travel day", () => {
       assert.equal(eventsForDay(day).find(event => event.title === "Jiu-jitsu").time, "11 am-1:30 pm");
     }
     if (weekday === 0) {
+      assert.ok(titles.includes("Lift with Hamoudi"));
       assert.ok(titles.includes("Arabic Reading"));
     }
   }

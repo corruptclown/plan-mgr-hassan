@@ -29,6 +29,7 @@ export const routine = {
     { title: "Read", time: "15 min", kind: "flexible", category: "life", theme: "life", note: "Time TBD" }
   ],
   0: [
+    { title: "Lift with Hamoudi", time: "Time TBD", kind: "flexible", category: "training" },
     { title: "Arabic Reading", time: "Time TBD", kind: "flexible", category: "life", theme: "life" }
   ]
 };
@@ -62,7 +63,7 @@ export const weeks = [
       { date: "2026-11-05", focus: "Work + lift with Hamoudi", room: "Lift time flexible. Some evening room.", events: [] },
       { date: "2026-11-06", focus: "Work + boxing", room: "Room before boxing, allowing for dinner + travel.", events: [] },
       { date: "2026-11-07", focus: "Jiu-jitsu", room: "No other plans added yet.", events: [] },
-      { date: "2026-11-08", focus: "Open day + Arabic Reading", room: "No other plans added yet.", events: [] }
+      { date: "2026-11-08", focus: "Lift with Hamoudi + Arabic Reading", room: "Lift time TBD.", events: [] }
     ],
     suggestions: [
       { category: "Food", title: "Easy dinners for Mon + Wed", note: "Plan ahead for late training nights" },
@@ -91,7 +92,7 @@ export const weeks = [
       { date: "2026-11-12", focus: "Work + lift with Hamoudi", room: "Lift time flexible. Some evening room.", events: [] },
       { date: "2026-11-13", focus: "Work + boxing", room: "Room before boxing, allowing for dinner + travel.", events: [] },
       { date: "2026-11-14", focus: "Jiu-jitsu", room: "No other plans added yet.", events: [] },
-      { date: "2026-11-15", focus: "Open day + Arabic Reading", room: "No other plans added yet.", events: [] }
+      { date: "2026-11-15", focus: "Lift with Hamoudi + Arabic Reading", room: "Lift time TBD.", events: [] }
     ],
     suggestions: []
   },
@@ -115,7 +116,7 @@ export const weeks = [
       { date: "2026-11-19", focus: "Work + lift with Hamoudi", room: "Lift time flexible. Some evening room.", events: [] },
       { date: "2026-11-20", focus: "Work + boxing", room: "Room before boxing, allowing for dinner + travel.", events: [] },
       { date: "2026-11-21", focus: "Jiu-jitsu", room: "No other plans added yet.", events: [] },
-      { date: "2026-11-22", focus: "Open day + Arabic Reading", room: "No other plans added yet.", events: [] }
+      { date: "2026-11-22", focus: "Lift with Hamoudi + Arabic Reading", room: "Lift time TBD.", events: [] }
     ],
     suggestions: []
   },
@@ -130,7 +131,7 @@ export const weeks = [
       { date: "2026-11-26", focus: "Work + lift with Hamoudi", room: "Lift time flexible. Some evening room.", events: [] },
       { date: "2026-11-27", focus: "Work + boxing", room: "Room before boxing, allowing for dinner + travel.", events: [] },
       { date: "2026-11-28", focus: "Jiu-jitsu", room: "No other plans added yet.", events: [] },
-      { date: "2026-11-29", focus: "Open day + Arabic Reading", room: "No other plans added yet.", events: [] }
+      { date: "2026-11-29", focus: "Lift with Hamoudi + Arabic Reading", room: "Lift time TBD.", events: [] }
     ],
     suggestions: []
   },
@@ -145,7 +146,7 @@ export const weeks = [
       { date: "2026-12-03", focus: "Work + lift with Hamoudi", room: "Lift time flexible. Some evening room.", events: [] },
       { date: "2026-12-04", focus: "Work + boxing", room: "Room before boxing, allowing for dinner + travel.", events: [] },
       { date: "2026-12-05", focus: "Jiu-jitsu", room: "No other plans added yet.", events: [] },
-      { date: "2026-12-06", focus: "Open day + Arabic Reading", room: "No other plans added yet.", events: [] }
+      { date: "2026-12-06", focus: "Lift with Hamoudi + Arabic Reading", room: "Lift time TBD.", events: [] }
     ],
     suggestions: []
   },
@@ -160,7 +161,7 @@ export const weeks = [
       { date: "2026-12-10", focus: "Work + lift with Hamoudi", room: "Lift time flexible. Some evening room.", events: [] },
       { date: "2026-12-11", focus: "Work + boxing", room: "Room before boxing, allowing for dinner + travel.", events: [] },
       { date: "2026-12-12", focus: "Jiu-jitsu", room: "No other plans added yet.", events: [] },
-      { date: "2026-12-13", focus: "Open day + Arabic Reading", room: "No other plans added yet.", events: [] }
+      { date: "2026-12-13", focus: "Lift with Hamoudi + Arabic Reading", room: "Lift time TBD.", events: [] }
     ],
     suggestions: []
   },
@@ -175,7 +176,7 @@ export const weeks = [
       { date: "2026-12-17", focus: "Work + lift with Hamoudi", room: "Lift time flexible. Some evening room.", events: [] },
       { date: "2026-12-18", focus: "Work + boxing", room: "Room before boxing, allowing for dinner + travel.", events: [] },
       { date: "2026-12-19", focus: "Jiu-jitsu", room: "No other plans added yet.", events: [] },
-      { date: "2026-12-20", focus: "Open day + Arabic Reading", room: "No other plans added yet.", events: [] }
+      { date: "2026-12-20", focus: "Lift with Hamoudi + Arabic Reading", room: "Lift time TBD.", events: [] }
     ],
     suggestions: []
   },
