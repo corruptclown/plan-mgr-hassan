@@ -9,13 +9,13 @@ let selectedView = "schedule";
 
 const monthlyExpenses = [
   { name: "Gym", amount: 50 },
-  { name: "MMA Gym", amount: 180 },
   { name: "Car insurance", amount: 165 },
+  { name: "MMA Gym", amount: 180 },
   { name: "Gas", amount: 350 },
   { name: "Spending money", amount: 500 },
-  { name: "TFSA / FHSA", amount: 1500 },
   { name: "Travel fund", amount: 500 },
-  { name: "Rent", amount: 850 }
+  { name: "Rent", amount: 850 },
+  { name: "TFSA / FHSA", amount: 1600 }
 ];
 const monthlyExpenseTotal = monthlyExpenses.reduce((total, expense) => total + expense.amount, 0);
 
@@ -141,7 +141,7 @@ function render() {
     : "Monthly expenses";
   const description = document.querySelector("#view-description");
   description.textContent = isSchedule ? week.focus : "";
-  description.hidden = !isSchedule;
+  description.hidden = !isSchedule || !week.focus;
   document.querySelector("#schedule-view").setAttribute("aria-pressed", String(isSchedule));
   document.querySelector("#expenses-view").setAttribute("aria-pressed", String(!isSchedule));
   document.querySelector("#schedule-content").hidden = !isSchedule;

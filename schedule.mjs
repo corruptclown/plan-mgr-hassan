@@ -39,7 +39,7 @@ export const weeks = [
   {
     title: "The week ahead.",
     range: "Nov 2 - 8, 2026",
-    focus: "Keep the training rhythm. Let the rest of the week breathe.",
+    focus: "",
     days: [
       { date: "2026-11-02", focus: "Work + double session", room: "Evening mostly committed.", events: [] },
       {
@@ -75,7 +75,7 @@ export const weeks = [
   {
     title: "The week ahead.",
     range: "Nov 9 - 15, 2026",
-    focus: "Keep the routine. Make room for what's next.",
+    focus: "",
     days: [
       { date: "2026-11-09", focus: "Work + double session", room: "Evening mostly committed.", events: [] },
       { date: "2026-11-10", focus: "Work + lift with Hamoudi + Arabic Reading", room: "Lift time flexible. Some evening room.", events: [] },
@@ -99,7 +99,7 @@ export const weeks = [
   {
     title: "The week ahead.",
     range: "Nov 16 - 22, 2026",
-    focus: "Keep the routine. Make room for what's next.",
+    focus: "",
     days: [
       { date: "2026-11-16", focus: "Work + double session", room: "Evening mostly committed.", events: [] },
       { date: "2026-11-17", focus: "Work + lift with Hamoudi + Arabic Reading", room: "Lift time flexible. Some evening room.", events: [] },
@@ -123,7 +123,7 @@ export const weeks = [
   {
     title: "The week ahead.",
     range: "Nov 23 - 29, 2026",
-    focus: "Keep the routine. Make room for what's next.",
+    focus: "",
     days: [
       { date: "2026-11-23", focus: "Work + double session", room: "Evening mostly committed.", events: [] },
       { date: "2026-11-24", focus: "Work + lift with Hamoudi + Arabic Reading", room: "Lift time flexible. Some evening room.", events: [] },
@@ -138,7 +138,7 @@ export const weeks = [
   {
     title: "The week ahead.",
     range: "Nov 30 - Dec 6, 2026",
-    focus: "Keep the routine. Make room for what's next.",
+    focus: "",
     days: [
       { date: "2026-11-30", focus: "Work + double session", room: "Evening mostly committed.", events: [] },
       { date: "2026-12-01", focus: "Work + lift with Hamoudi + Arabic Reading", room: "Lift time flexible. Some evening room.", events: [] },
@@ -153,7 +153,7 @@ export const weeks = [
   {
     title: "The week ahead.",
     range: "Dec 7 - 13, 2026",
-    focus: "Keep the routine. Make room for what's next.",
+    focus: "",
     days: [
       { date: "2026-12-07", focus: "Work + double session", room: "Evening mostly committed.", events: [] },
       { date: "2026-12-08", focus: "Work + lift with Hamoudi + Arabic Reading", room: "Lift time flexible. Some evening room.", events: [] },
@@ -168,7 +168,7 @@ export const weeks = [
   {
     title: "The week ahead.",
     range: "Dec 14 - 20, 2026",
-    focus: "Keep the routine. Make room for what's next.",
+    focus: "",
     days: [
       { date: "2026-12-14", focus: "Work + double session", room: "Evening mostly committed.", events: [] },
       { date: "2026-12-15", focus: "Work + lift with Hamoudi + Arabic Reading", room: "Lift time flexible. Some evening room.", events: [] },
